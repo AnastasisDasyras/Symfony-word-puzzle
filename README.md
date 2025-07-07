@@ -48,13 +48,20 @@ The project follows the MVC (Model-View-Controller) pattern:
 
    ```bash
    make build
+   make start
    ```
 
 3. Install Dependencies:
 
    ```bash
-   make exec-php-fpm
    make composer-install
+   ```
+
+4. Setup DB
+
+   ```bash
+   make exec-php-fpm
+    php bin/console doctrine:migrations:migrate --no-interaction
    ```
 
 This command will:
