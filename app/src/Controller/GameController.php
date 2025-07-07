@@ -95,6 +95,10 @@ class GameController extends AbstractController
         $game->setScore($data['finalScore']);
         $entityManager->flush();
 
-        return new JsonResponse(['success' => true, 'message' => 'Game finished'], 200);
+        return new JsonResponse([
+            'success' => true,
+            'message' => 'Game finished successfully!',
+            'redirectUrl' => $this->generateUrl('app_leaderboard')
+        ], 200);
     }
 }
