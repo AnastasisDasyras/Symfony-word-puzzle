@@ -15,7 +15,7 @@
 /docker/php-fpm/logs
 
 # Ignore environment configuration file
-app/.env
+# app/.env
 
 ###> symfony/framework-bundle ###
 app/var/
