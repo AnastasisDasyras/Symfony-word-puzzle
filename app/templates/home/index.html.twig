@@ -52,6 +52,12 @@
             border-radius: 8px;
             border: 4px solid green;
         }
+    
+        .feature a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
         
         .feature h3 {
             margin-top: 0;
@@ -77,8 +83,10 @@
         <div class="features">
             {% for puzzle in puzzles %}
              <div class="feature">
-                <h3>Puzzle {{ puzzle.id }}</h3>
-                
+                <a href="{{ path('app_game', {'id': puzzle.id}) }}">
+                    <h3>Puzzle {{ puzzle.id }}</h3>
+                    <p>Click to play this puzzle!</p>
+                </a>
             </div>
             {% endfor %}
             
