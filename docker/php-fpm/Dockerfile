@@ -32,6 +32,9 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash && \
 RUN pecl install xdebug && \
     docker-php-ext-enable xdebug
 
+# Install pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Configure Xdebug
 RUN echo '[xdebug]' > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
     echo 'zend_extension=xdebug' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \

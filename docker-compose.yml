@@ -14,7 +14,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9000" ]
+      test: ["CMD", "curl", "-f", "http://localhost:9000"]
       interval: 30s
       retries: 3
       start_period: 5s
@@ -34,6 +34,25 @@ services:
     networks:
       - symfony
 
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - symfony
+
 networks:
   symfony:
     driver: bridge
+
+volumes:
+  mariadb_data:
