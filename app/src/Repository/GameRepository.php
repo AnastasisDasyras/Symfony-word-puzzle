@@ -50,4 +50,16 @@ class GameRepository extends ServiceEntityRepository
     {
         return true;
     }
+
+    public function getTopPlayersByTotalScore(): array
+    {
+        $qb = $this->createQueryBuilder('g')
+            ->select('u.username, SUM(g.score) as totalScore')
+            ->join('App\Entity\User', 'u', 'WITH', 'u.id = g.userId')
+            ->groupBy('g.userId, u.username')
+            ->orderBy('totalScore', 'DESC')
+            ->setMaxResults(10);
+
+        return $qb->getQuery()->getResult();
+    }
 }
