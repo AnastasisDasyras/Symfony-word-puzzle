@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Game;
+use App\Service\DictionaryService;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -11,8 +12,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class GameRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
+    public function __construct(
+        ManagerRegistry $registry,
+        private DictionaryService $dictionaryService
+    ) {
         parent::__construct($registry, Game::class);
     }
 
@@ -48,7 +51,7 @@ class GameRepository extends ServiceEntityRepository
 
     private function isValidEnglishWord(string $word): bool
     {
-        return true;
+        return $this->dictionaryService->isValidWord($word);
     }
 
     public function getTopPlayersByTotalScore(): array
