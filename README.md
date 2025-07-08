@@ -80,6 +80,8 @@ The application uses three main entities:
 2. **Puzzle**: Contains letter pools for word creation
 3. **Game**: Tracks individual game sessions and scores
 
+![db structure](app/assets/db-structure.png)
+
 ## Game Logic
 
 1. Users must register/login to play
