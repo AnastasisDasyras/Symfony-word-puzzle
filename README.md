@@ -118,3 +118,6 @@ If you encounter issues:
 ## License
 
 This project uses the Symfony Docker Boilerplate as its foundation.
+https://medium.com/@bordage.mickael/boilerplate-symfony-with-docker-and-make-simplify-your-life-developer-c55ce8e9d521
+
+https://github.com/mb2dev/Symfony-Docker-Boilerplate

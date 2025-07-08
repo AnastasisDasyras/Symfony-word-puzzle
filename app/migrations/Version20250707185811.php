@@ -21,6 +21,8 @@ final class Version20250707185811 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE puzzle (id INT AUTO_INCREMENT NOT NULL, letter_pool LONGTEXT NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql("INSERT INTO symfony.puzzle (letter_pool,created_at) VALUES ('dgeftoikbvxua', NOW())");
+        $this->addSql("INSERT INTO symfony.puzzle (letter_pool,created_at) VALUES ('fdoogtsmeliak', NOW())");
     }
 
     public function down(Schema $schema): void
